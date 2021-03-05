@@ -48,8 +48,6 @@ clean:
 
 deb: fwd_sx1301 fwd_sx1302 station_sx1301 station_sx1302
 	rm -rf pi_pkg
-	mkdir -p pi_pkg/usr/bin
-	mkdir -p pi_pkg/usr/lib
 	mkdir -p pi_pkg/lib/systemd/system
 	mkdir -p pi_pkg/etc/lora-gateway
 	cp -rf DEBIAN pi_pkg
@@ -57,10 +55,12 @@ deb: fwd_sx1301 fwd_sx1302 station_sx1301 station_sx1302
 	cp -rf config pi_pkg/etc/lora-gateway
 	cp -f config/global_conf.json pi_pkg/etc/lora-gateway
 	cp -f config/local_conf.json pi_pkg/etc/lora-gateway
+	install -d pi_pkg/usr/lib
 	install -m 755 libmqtt/libpahomqtt3c.so pi_pkg/usr/lib
 	install -m 755 sx1301hal/libsx1301hal.so pi_pkg/usr/lib
 	install -m 755 sx1302hal/libsx1302hal.so pi_pkg/usr/lib
-	install -m 755 build_station_sx1301/build-mips-openwrt-dragino/lib/libmbed* pi_pkt/usr/lib
+	install -m 755 build_station_sx1301/build-mips-openwrt-dragino/lib/libmbed* pi_pkg/usr/lib
+	install -d pi_pkg/usr/bin
 	install -m 755 build_fwd_sx1301/fwd_sx1301 pi_pkg/usr/bin
 	install -m 755 build_fwd_sx1302/fwd_sx1302 pi_pkg/usr/bin
 	install -m 755 build_station_sx1301/build-mips-openwrt-dragino/bin/station_sx1301 pi_pkg/usr/bin
