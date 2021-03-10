@@ -36,7 +36,7 @@ if [[ -z "$platform" ]] || [[ -z "$variant" ]]; then
 fi
 
 if [[ ! -d platform-$platform ]]; then
-    cp -rf git-repo platform-$platform
+    cp -rf src-repo platform-$platform
 fi
 
 cd platform-$platform
