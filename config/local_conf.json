@@ -26,7 +26,7 @@
             9.为1时：LOG_TIMERSYNC = 1;
             10.为1时：LOG_MEM = 1;
         */
-        "logmask": "1111500000", // INFO,PKT,WARNING,ERROR,REPORT
+        "log_mask": "1111500000", // INFO,PKT,WARNING,ERROR,REPORT
         /* GPS configuration */
         //"gps_tty_path": "/dev/ttyS0",
         /* GPS reference coordinates */
