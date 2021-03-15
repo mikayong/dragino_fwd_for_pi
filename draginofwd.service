@@ -6,10 +6,9 @@ After=network-online.target
 [Service]
 Restart=always
 RestartSec=30
-WorkingDirectory=/etc/lora-gateway
-ExecStartPre=/usr/bin/reset_lgw.sh start 
+WorkingDirectory=/etc/lora 
 ExecStart=/usr/bin/fwd
-ExecStopPost=/usr/bin/reset_lgw.sh stop
+
 
 [Install]
 WantedBy=multi-user.target
