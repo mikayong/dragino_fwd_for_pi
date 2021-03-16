@@ -1,6 +1,7 @@
 {
+   {
     "gateway_conf": {
-        "platform": "LG302",
+        "platform": "SX1302",
         "description": "LoRa gateway",
         "gateway_ID": "AA555A100000FFFF",
         "radiostream_enable": true,
@@ -13,6 +14,19 @@
         "mac_decode": false,
         "mac2file": false,
         "mac2db": false,
+        /*  1111111111, 十个字符， 每个字符代表一个等级
+            1.为1时：LOG_INFO = 1;
+            2.为1时：LOG_PKT = 1;
+            3.为1时：LOG_WARNING = 1;
+            4.为1时：LOG_ERROR= 1;
+            5.为1时：LOG_REPORT = 1;
+            6.为1时：LOG_DEBUG = 1;
+            7.为1时：LOG_JIT= 1;
+            8.为1时：LOG_BECON = 1;
+            9.为1时：LOG_TIMERSYNC = 1;
+            10.为1时：LOG_MEM = 1;
+        */
+        "log_mask": "1111500000", // INFO,PKT,WARNING,ERROR,REPORT
         /* GPS configuration */
         //"gps_tty_path": "/dev/ttyS0",
         /* GPS reference coordinates */
@@ -56,4 +70,5 @@
         ],
         "log_file": "loragw_hal.log"
     }
+}
 }

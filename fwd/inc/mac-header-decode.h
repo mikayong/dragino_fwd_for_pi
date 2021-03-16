@@ -55,6 +55,7 @@ typedef union uLoRaMacHeader
      */
     struct sMacHeaderBits
     {
+#ifdef BIGENDIAN
         /*!
          * Message type
          */
@@ -67,6 +68,11 @@ typedef union uLoRaMacHeader
          * Major version
          */
         uint8_t Major           : 2;
+#else
+        uint8_t Major           : 2;
+        uint8_t RFU             : 3;
+        uint8_t MType           : 3;
+#endif
     }Bits;
 }LoRaMacHeader_t;
 
@@ -86,6 +92,7 @@ typedef union uLoRaMacFrameCtrl
      */
     struct sCtrlBits
     {
+#ifdef BIGENDIAN
         /*!
          * ADR control in frame header
          */
@@ -106,6 +113,13 @@ typedef union uLoRaMacFrameCtrl
          * Frame options length
          */
         uint8_t FOptsLen        : 4;
+#else
+        uint8_t FOptsLen        : 4;
+        uint8_t FPending        : 1;
+        uint8_t Ack             : 1;
+        uint8_t AdrAckReq       : 1;
+        uint8_t Adr             : 1;
+#endif
     }Bits;
 }LoRaMacFrameCtrl_t;
 
@@ -256,6 +270,11 @@ typedef union uLoRaMacDLSettings
      */
     struct sDLSettingsBits
     {   
+#ifdef BIGENDIAN
+        uint8_t OptNeg          : 1;
+        uint8_t RX1DRoffset     : 3;
+        uint8_t RX2DataRate     : 4;
+#else
         /*!
          * Data rate of a downlink using the second receive window
          */
@@ -268,6 +287,7 @@ typedef union uLoRaMacDLSettings
          * Indicates network server LoRaWAN implementation version 1.1 or later.
          */
         uint8_t OptNeg          : 1;
+#endif
     }Bits;
 }LoRaMacDLSettings_t;
 

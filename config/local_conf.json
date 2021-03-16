@@ -14,18 +14,6 @@
         "mac_decode": false,
         "mac2file": false,
         "mac2db": false,
-        /*  1111111111, 十个字符， 每个字符代表一个等级
-            1.为1时：LOG_INFO = 1;
-            2.为1时：LOG_PKT = 1;
-            3.为1时：LOG_WARNING = 1;
-            4.为1时：LOG_ERROR= 1;
-            5.为1时：LOG_REPORT = 1;
-            6.为1时：LOG_DEBUG = 1;
-            7.为1时：LOG_JIT= 1;
-            8.为1时：LOG_BECON = 1;
-            9.为1时：LOG_TIMERSYNC = 1;
-            10.为1时：LOG_MEM = 1;
-        */
         "log_mask": "1111500000", // INFO,PKT,WARNING,ERROR,REPORT
         /* GPS configuration */
         //"gps_tty_path": "/dev/ttyS0",
@@ -43,19 +31,19 @@
         "servers": [
             {
                 /* change with default server address/ports */
-                "server_name": "nametest",  //name是服务的标识，必须要设置一个name
+                "server_name": "nametest",  
                 "enabled": true,
-                "server_type": "semtech",  //服务类型有：semtech, mqtt, gwtraft, ttn
+                "server_type": "semtech",  
                 "server_address": "router.eu.thethings.network",
-                "serv_port_up": "1700",
-                "serv_port_down": "1700",
+                "serv_port_up": 1700,
+                "serv_port_down": 1700,
                 /* adjust the following parameters for your network */
                 "keepalive_interval": 10,
                 "stat_interval": 30,
                 "push_timeout_ms": 100,
                 /* forward only valid packets */
                 "fport_filter": 0,  
-                "devaddr_filter": 0, // 和fport的设置相同
+                "devaddr_filter": 0, 
                 "forward_crc_valid": true,
                 "forward_crc_error": false,
                 "forward_crc_disabled": false
